@@ -1,0 +1,18 @@
+{
+  "name": "cc-om",
+  "displayName": "Observational Memory for Claude Code",
+  "version": "0.1.0",
+  "description": "Observational memory for long-lived coding sessions: background observers compress the transcript into an observation ledger, a consolidator promotes old observations into durable topic files, and hooks re-inject a memory block after every compaction.",
+  "author": {
+    "name": "RAV64",
+    "email": "73443709+RAV64@users.noreply.github.com"
+  },
+  "license": "MIT",
+  "keywords": [
+    "memory",
+    "observational-memory",
+    "compaction",
+    "long-running-sessions"
+  ],
+  "skills": "./skills/"
+}
