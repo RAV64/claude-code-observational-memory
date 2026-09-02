@@ -1,12 +1,15 @@
 # How to install cc-om
 
-## For development (local checkout)
+## Install from the marketplace
 
-```bash
-claude --plugin-dir /path/to/cc-om
-```
+1. The repo ships its own marketplace index (`.claude-plugin/marketplace.json`, marketplace name `rav64`). Add it and install from it:
 
-Reload after editing plugin files with `/reload-plugins` inside the session.
+   ```bash
+   claude plugin marketplace add RAV64/claude-code-observational-memory
+   claude plugin install cc-om@rav64
+   ```
+
+2. Verify it is active: run `/cc-om:status` in a session.
 
 ## Required: set the companion setting
 
@@ -30,16 +33,13 @@ Add to the project's `CLAUDE.md` ([why](../explanation/design-decisions.md#accep
 When compacting this conversation, do not reproduce the `<observational-memory>` block in the summary — it is maintained by the cc-om plugin and re-injected automatically after compaction.
 ```
 
-## As a persistent plugin
+## For development (local checkout)
 
-1. The repo ships its own marketplace index (`.claude-plugin/marketplace.json`, marketplace name `rav64`). Add it and install from it:
+```bash
+claude --plugin-dir /path/to/cc-om
+```
 
-   ```bash
-   claude plugin marketplace add RAV64/claude-code-observational-memory
-   claude plugin install cc-om@rav64
-   ```
-
-2. Verify it is active: run `/cc-om:status` in a session.
+Reload after editing plugin files with `/reload-plugins` inside the session.
 
 ## Validate before distributing
 

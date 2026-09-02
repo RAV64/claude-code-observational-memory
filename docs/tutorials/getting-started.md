@@ -2,17 +2,24 @@
 
 In this tutorial you will run your first Claude Code session with observational memory, pin a fact, inspect the memory state, and see the memory block survive a context reset.
 
-You need the [requirements](../../README.md#requirements) installed, a local checkout of this plugin, and the [companion settings](../how-to/install.md#required-set-the-companion-setting) set for your project or user.
+You need the [requirements](../../README.md#requirements) installed and the [companion setting](../how-to/install.md#required-set-the-companion-setting) set for your project or user.
 
-## 1. Start a session with the plugin loaded
+## 1. Install the plugin and start a session
 
-From any project directory, run:
+Inside any Claude Code session, add the marketplace and install cc-om from it:
 
-```bash
-claude --plugin-dir /path/to/cc-om
+```
+/plugin marketplace add RAV64/claude-code-observational-memory
+/plugin install cc-om@rav64
 ```
 
-Claude Code starts normally. cc-om is now listening to the session through its hooks.
+Then start a fresh session from any project directory:
+
+```bash
+claude
+```
+
+Claude Code starts normally. cc-om is now listening to the session through its hooks. (Working from a local checkout instead? See [install](../how-to/install.md#for-development-local-checkout).)
 
 ## 2. Pin your first fact
 
