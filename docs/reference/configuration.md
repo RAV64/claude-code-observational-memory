@@ -23,19 +23,19 @@ Numeric variables must be non-negative integers.
 | `OM_DATA_ROOT` | `$CLAUDE_PLUGIN_DATA` | Root of session state and consolidation locks. Without `CLAUDE_PLUGIN_DATA` (manual invocations), the most recently modified `${CLAUDE_CONFIG_DIR:-~/.claude}/plugins/data/cc-om-*` directory that contains `sessions/` (Claude Code names it after `cc-om@<marketplace>` with characters outside `A-Za-z0-9_-` replaced by `-`), then `~/.cc-om` |
 | `CLAUDE_PLUGIN_DATA` | set by Claude Code | Default for `OM_DATA_ROOT` in hook contexts |
 
-## Companion settings (must be set by the user)
+## Companion setting (must be set by the user)
 
-How to set them: [install](../how-to/install.md#required-set-the-companion-settings). Rationale: [design decisions](../explanation/design-decisions.md#memory-ownership), [compaction](../explanation/design-decisions.md#postpone-compaction-instead-of-controlling-it).
+How to set it: [install](../how-to/install.md#required-set-the-companion-setting). Rationale: [memory ownership](../explanation/design-decisions.md#memory-ownership).
 
 | Key | Value | Effect |
 |---|---|---|
-| `autoCompactWindow` | `300000` | Auto-compaction window in tokens (100000–1000000, capped at the model's context window) |
 | `autoMemoryEnabled` | `false` | Disables native auto memory, including `MEMORY.md` index loading |
 
 ## Related Claude Code settings
 
 | Setting / variable | Effect |
 |---|---|
+| `autoCompactWindow` | Token count at which auto-compaction runs (100000–1000000). Default: the model's context window. The value is capped at that window, so it can only make compaction earlier, never later |
 | `CLAUDE_CODE_AUTO_COMPACT_WINDOW` | Per-session override of `autoCompactWindow` |
 | `DISABLE_AUTO_COMPACT=1` | Turns auto-compaction off for the session; manual `/compact` still works |
 | `CLAUDE_CODE_DISABLE_AUTO_MEMORY` | `1` disables auto memory, `0` forces it on; either overrides `autoMemoryEnabled` |

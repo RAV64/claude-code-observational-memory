@@ -2,9 +2,9 @@
 
 The reasoning behind cc-om's contested choices. How the pieces fit together is in [architecture](architecture.md).
 
-## Postpone compaction instead of controlling it
+## Accept compaction instead of controlling it
 
-Claude Code gives plugins no way to replace compaction or shape its summary; a `PreCompact` hook can only block it. cc-om therefore accepts it: the install settings set `autoCompactWindow`, and the memory block is delivered by injection ([architecture](architecture.md#the-pipeline)) rather than by surviving in history. Losing the verbatim raw tail at compaction is accepted; observation density is the compensation.
+Claude Code gives plugins no way to replace compaction or shape its summary; a `PreCompact` hook can only block it. cc-om therefore accepts it at whatever window the session runs: nothing in the design depends on when compaction happens, and the memory block is delivered by injection ([architecture](architecture.md#the-pipeline)) rather than by surviving in history. Losing the verbatim raw tail at compaction is accepted; observation density is the compensation.
 
 The observer backlog is drained in the `PreCompact` hook, bounded by the hook timeout, a pass cap, and the minimum flush size ([CLI](../reference/cli.md#hook-subcommands)); whatever remains is picked up after compaction (mechanism: [the pipeline](architecture.md#the-pipeline)).
 

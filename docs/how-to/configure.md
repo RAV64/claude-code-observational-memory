@@ -18,13 +18,15 @@ Observers wake when this many new transcript bytes have accumulated:
 export OM_CHUNK_BYTES=30000
 ```
 
-## Change the auto-compaction window
+## Compact earlier than the model's limit
 
-Set it per project in `.claude/settings.json`:
+cc-om does not need this; it is a cost knob. By default Claude Code compacts at the model's context window (1M tokens on current models). A smaller window makes turns cheaper and refreshes the memory block sooner, at the price of more frequent compaction. Set it per project in `.claude/settings.json`:
 
 ```json
-{ "autoCompactWindow": 500000 }
+{ "autoCompactWindow": 300000 }
 ```
+
+The value cannot exceed the model's context window ([reference](../reference/configuration.md#related-claude-code-settings)).
 
 ## Provide credentials to hook-spawned observers
 

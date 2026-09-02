@@ -2,7 +2,7 @@
 
 In this tutorial you will run your first Claude Code session with observational memory, pin a fact, inspect the memory state, and see the memory block survive a context reset.
 
-You need the [requirements](../../README.md#requirements) installed, a local checkout of this plugin, and the [companion settings](../how-to/install.md#required-set-the-companion-settings) set for your project or user.
+You need the [requirements](../../README.md#requirements) installed, a local checkout of this plugin, and the [companion settings](../how-to/install.md#required-set-the-companion-setting) set for your project or user.
 
 ## 1. Start a session with the plugin loaded
 

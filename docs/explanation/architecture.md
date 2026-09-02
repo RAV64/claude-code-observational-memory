@@ -54,4 +54,4 @@ Two properties are central:
 
 ## Cache behavior
 
-Between compactions the context is strictly append-only: observers work off to the side, injections land at the tail, and nothing rewrites already-sent history, so prompt-cache hits are preserved. The one full cache bust is compaction itself, which Claude Code pays with or without cc-om; the `autoCompactWindow` set at install ([configuration](../reference/configuration.md#companion-settings-must-be-set-by-the-user)) controls how often it happens.
+Between compactions the context is strictly append-only: observers work off to the side, injections land at the tail, and nothing rewrites already-sent history, so prompt-cache hits are preserved. The one full cache bust is compaction itself, which Claude Code pays with or without cc-om; how often it happens is set by the session's auto-compaction window ([configuration](../reference/configuration.md#related-claude-code-settings)), which cc-om leaves alone.

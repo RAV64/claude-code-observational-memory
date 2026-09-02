@@ -1,4 +1,3 @@
 {
-  "autoMemoryEnabled": false,
-  "autoCompactWindow": 300000
+  "autoMemoryEnabled": false
 }

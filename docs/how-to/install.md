@@ -8,24 +8,23 @@ claude --plugin-dir /path/to/cc-om
 
 Reload after editing plugin files with `/reload-plugins` inside the session.
 
-## Required: set the companion settings
+## Required: set the companion setting
 
-Set cc-om's two operating assumptions in the project's `.claude/settings.json`:
+Disable native auto memory in the project's `.claude/settings.json`:
 
 ```json
 {
-  "autoMemoryEnabled": false,
-  "autoCompactWindow": 300000
+  "autoMemoryEnabled": false
 }
 ```
 
-Rationale: [design decisions](../explanation/design-decisions.md#memory-ownership), [compaction](../explanation/design-decisions.md#postpone-compaction-instead-of-controlling-it).
+Rationale: [memory ownership](../explanation/design-decisions.md#memory-ownership).
 
 User-level `~/.claude/settings.json` works too and covers every project at once; use per-project settings only if some repos should keep native auto memory. Unless auto memory is disabled, `om session-start` warns ([what is checked](../reference/cli.md#hook-subcommands)).
 
 ## Recommended: add the compaction instruction to `CLAUDE.md`
 
-Add to the project's `CLAUDE.md` ([why](../explanation/design-decisions.md#postpone-compaction-instead-of-controlling-it)):
+Add to the project's `CLAUDE.md` ([why](../explanation/design-decisions.md#accept-compaction-instead-of-controlling-it)):
 
 ```markdown
 When compacting this conversation, do not reproduce the `<observational-memory>` block in the summary — it is maintained by the cc-om plugin and re-injected automatically after compaction.

@@ -36,7 +36,7 @@ or `om consolidate --cwd "$PWD"` from the session's Bash tool.
 
 ## Keep the compaction summary from duplicating the memory block
 
-The persistent fix is the `CLAUDE.md` instruction from the [install step](install.md#recommended-add-the-compaction-instruction-to-claudemd) ([why](../explanation/design-decisions.md#postpone-compaction-instead-of-controlling-it)); for a one-off manual compaction:
+The persistent fix is the `CLAUDE.md` instruction from the [install step](install.md#recommended-add-the-compaction-instruction-to-claudemd) ([why](../explanation/design-decisions.md#accept-compaction-instead-of-controlling-it)); for a one-off manual compaction:
 
 ```
 /compact do not reproduce the <observational-memory> block in the summary; it is re-injected automatically
