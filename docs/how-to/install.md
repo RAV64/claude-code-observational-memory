@@ -33,11 +33,11 @@ When compacting this conversation, do not reproduce the `<observational-memory>`
 
 ## As a persistent plugin
 
-1. Publish the repo (or a fork) with a `.claude-plugin/marketplace.json` index, then:
+1. The repo ships its own marketplace index (`.claude-plugin/marketplace.json`, marketplace name `rav64`). Add it and install from it:
 
    ```bash
-   claude plugin marketplace add <your-marketplace-repo-url>
-   claude plugin install cc-om@<marketplace-name>
+   claude plugin marketplace add RAV64/claude-code-observational-memory
+   claude plugin install cc-om@rav64
    ```
 
 2. Verify it is active: run `/cc-om:status` in a session.
